@@ -62,6 +62,6 @@ function convertRomanNumber (number) {
 // let atual = romanNumerals[number[len - 1]];
 // console.log(sum);
 
-console.log(convertRomanNumber('MMXXII')); // 2018
+console.log(convertRomanNumber('MMXXII')); // 2022
 console.log(convertRomanNumber('VI')); // 6
 console.log(convertRomanNumber('IV')); // 4
