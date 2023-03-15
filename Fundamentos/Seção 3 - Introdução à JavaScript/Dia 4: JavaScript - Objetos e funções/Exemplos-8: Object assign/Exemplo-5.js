@@ -1,7 +1,7 @@
 const obj = { value1: 10, value2: 11 };
 const cloneObj = obj;
 
-Object.assign(obj, { newKey: obj['value1'] })['value1'];
+Object.assign(obj, { newKey: obj['value1'] });
 
 console.log(obj);
 console.log(cloneObj);
