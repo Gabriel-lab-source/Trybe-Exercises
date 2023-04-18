@@ -1,0 +1,22 @@
+{
+  "name": "configurando-ambiente-de-desenvolvimento",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nanoid": "^4.0.2",
+    "optionator": "^0.9.1",
+    "vite": "^4.2.2"
+  },
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^8.38.0"
+  }
+}
