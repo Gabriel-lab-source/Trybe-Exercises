@@ -1,22 +1,23 @@
 {
-  "name": "configurando-ambiente-de-desenvolvimento",
+  "name": "configurando-o-ambiente-de-desenvolvimento",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "vite build",
     "dev": "vite --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "clipboard-copy": "^4.0.1",
     "nanoid": "^4.0.2",
-    "optionator": "^0.9.1",
-    "vite": "^4.2.2"
+    "vite": "^4.3.1"
   },
   "type": "module",
   "devDependencies": {
-    "eslint": "^8.38.0"
+    "eslint": "^8.39.0"
   }
 }
