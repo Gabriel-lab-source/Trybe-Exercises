@@ -1,0 +1,23 @@
+// array.reduce((acumulador, valorAtual, indexAtual, array) => { "código" }, valorInicial);
+
+/* array.reduce((acc, curr) => {
+  // escopo de execução da função
+}, valorInicial); */
+
+const valorItens = [1, 32, 44, 2, 3];
+
+/* valorItens.reduce((acc, curr) => {
+  console.log(`acumulador - acc:`, acc);
+  console.log(`valorAtual - curr:`, curr);
+}, 0); */
+
+const valorTotal = valorItens.reduce((acc, curr) => {
+  console.log(`acc:`, acc);
+  console.log(`curr:`, curr);
+  console.log('a soma atual é', acc + curr);
+
+  return acc + curr;
+}, 0);
+
+console.log(valorTotal);
+
