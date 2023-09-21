@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import AddressForm from './components/AddressForm';
 import PersonalForm from './components/PersonalForm';
 import ProfessionalForm from './components/ProfessionalForm';
@@ -33,7 +33,7 @@ export default function App() {
     }
   };
 
-  function handleChange(e: ChangeEventType) {
+  const handleChange = (e: ChangeEventType) => {
     const { name, value } = e.target;
     const newValue = name === 'address' ? value.replace(/[^\w\s]/g, '') : value;
 
@@ -46,7 +46,7 @@ export default function App() {
         ...formInfo, [name]: newValue,
       });
     }
-  }
+  };
 
   const handleBlur = ({ target }: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = target;
@@ -58,7 +58,7 @@ export default function App() {
     }
   };
 
-  function handleSubmit(e) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setShowForm(true);
   }
