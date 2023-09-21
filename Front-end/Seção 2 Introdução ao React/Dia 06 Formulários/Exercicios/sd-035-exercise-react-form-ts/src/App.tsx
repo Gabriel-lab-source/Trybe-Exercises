@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { FormStateType } from "./types";
-import PersonalForm from "./components/PersonalForm";
-import countryStates from "./countryStates";
-import AddressForm from "./components/AddressForm";
-import ProfessionalForm from "./components/ProfessionalForm";
+import React, { useState } from 'react';
+import AddressForm from './components/AddressForm';
+import PersonalForm from './components/PersonalForm';
+import ProfessionalForm from './components/ProfessionalForm';
+import { FormStateType } from './types';
 
 const INITIAL_STATE = {
   name: '',
@@ -18,13 +17,11 @@ const INITIAL_STATE = {
   roleDescription: '',
 } as FormStateType;
 
-
 type ChangeEventType = React
   .ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
 
 export default function App() {
-
-  const [formInfo, setFormInfo] = useState(INITIAL_STATE)
+  const [formInfo, setFormInfo] = useState(INITIAL_STATE);
   const [alertWasDisplayed, setAlertWasDisplayed] = useState(false);
 
   const handleMouseEnter = () => {
@@ -37,18 +34,18 @@ export default function App() {
   function handleChange(e: ChangeEventType) {
     const { name, value } = e.target;
     const newValue = name === 'address' ? value.replace(/[^\w\s]/g, '') : value;
-    
+
     if (name === 'name') {
       setFormInfo({
         ...formInfo, [name]: newValue.toUpperCase(),
-      })
+      });
     } else {
       setFormInfo({
         ...formInfo, [name]: newValue,
-      })
+      });
     }
   }
-  
+
   const handleBlur = ({ target }: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = target;
 
