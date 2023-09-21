@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AddressForm from './components/AddressForm';
 import PersonalForm from './components/PersonalForm';
 import ProfessionalForm from './components/ProfessionalForm';
+import ShowForm from './components/ShowForm';
 import { FormStateType } from './types';
 
 const INITIAL_STATE = {
@@ -23,10 +24,11 @@ type ChangeEventType = React
 export default function App() {
   const [formInfo, setFormInfo] = useState(INITIAL_STATE);
   const [alertWasDisplayed, setAlertWasDisplayed] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const handleMouseEnter = () => {
     if (!alertWasDisplayed) {
-      global.alert('Preencha com cuidado esta informação.');
+      alert('Preencha com cuidado esta informação.');
       setAlertWasDisplayed(true);
     }
   };
@@ -56,11 +58,47 @@ export default function App() {
     }
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    setShowForm(true);
+  }
+
+  function handleClearBtn() {
+    setShowForm(true);
+    setFormInfo(INITIAL_STATE);
+  }
+
   return (
-    <form>
-      <PersonalForm onChange={ handleChange } formState={ formInfo } />
-      <AddressForm onChange={ handleChange } onBlur={ handleBlur } formState={ formInfo } />
-      <ProfessionalForm onChange={ handleChange } handleMouseEnter={ handleMouseEnter } formState={ formInfo } />
+    <form onSubmit={ handleSubmit }>
+      <PersonalForm
+        onChange={ handleChange }
+        formState={ formInfo }
+      />
+      <AddressForm
+        onChange={ handleChange }
+        onBlur={ handleBlur }
+        formState={ formInfo }
+      />
+      <ProfessionalForm
+        onChange={ handleChange }
+        handleMouseEnter={ handleMouseEnter }
+        formState={ formInfo }
+      />
+      <button
+        type="submit"
+      >
+        Enviar
+      </button>
+      <button
+        type="button"
+        onClick={ handleClearBtn }
+      >
+        Limpar
+
+      </button>
+      {
+        showForm && <ShowForm formState={ formInfo } />
+      }
     </form>
   );
 }
