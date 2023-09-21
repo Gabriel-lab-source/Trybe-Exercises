@@ -6,8 +6,10 @@ type ProfessionalFormProps = {
   handleMouseEnter: React.MouseEventHandler<HTMLInputElement>
 };
 
-export default function ProfessionalForm({
-  formState, onChange, handleMouseEnter }: ProfessionalFormProps) {
+export default function ProfessionalForm(
+  { formState, onChange, handleMouseEnter }: ProfessionalFormProps,
+) {
+  
   const { resume, role, roleDescription } = formState;
   return (
     <fieldset>
