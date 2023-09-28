@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/RegisterProduct.css';
-import { ProductType, ProductWithId } from '../types';
+import { ProductType } from '../types';
 import Product from './Product';
 
 const INITIAL_STATE = {
@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 } as ProductType;
 
 type Props = {
-  handleSubmit: () => void
+  handleSubmit: (productInfo: ProductType) => void
 };
 
 type ChangeEventType = React
@@ -24,14 +24,27 @@ export default function RegisterProduct(props: Props) {
 
   function handleChange({ target }: ChangeEventType) {
     const { name, value } = target;
+    // valueAsNumber é uma das propriedades do evento que converte a string em números (mesmo para type="number")
+    // const { name, value, valueAsNumber } = target;
+    /* setProductInfo({
+      ...productInfo,
+      [name]: valueAsNumber || value,
+    }); */
+    // const newValue = name === 'price' ? Number(value) : value;
+    /* setProductInfo({
+      ...productInfo,
+      [name]: newValue,
+    }); */
     setProductInfo({
       ...productInfo,
-      [name]: value,
+      [name]: name === 'price' ? Number(value) : value,
     });
   }
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    handleSubmit(productInfo);
+    setProductInfo(INITIAL_STATE);
   };
 
   return (

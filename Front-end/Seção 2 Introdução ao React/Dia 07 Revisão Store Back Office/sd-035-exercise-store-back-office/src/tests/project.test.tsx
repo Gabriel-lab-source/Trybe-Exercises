@@ -88,7 +88,7 @@ describe('2 - Exiba o preview das informações enquanto o usuário cadastra um 
 });
 
 describe('3 - Implemente a funcionalidade de cadastrar um novo produto', () => {
-  it.skip('Será validado que ao clicar no botão "Salvar" o formulário é limpo', () => {
+  it('Será validado que ao clicar no botão "Salvar" o formulário é limpo', () => {
     fillRegister(PRODUCTS[0]);
 
     const button = screen.getByRole('button', { name: 'Salvar' });
