@@ -7,6 +7,5 @@ const displayPasswordEl = document.querySelector('h2');
 passwordBtnEl.addEventListener('click', () => {
   const randomPassword = nanoid();
   displayPasswordEl.innerHTML = randomPassword;
-  console.log(displayPasswordEl.innerHTML);
   copy(randomPassword)
 });
