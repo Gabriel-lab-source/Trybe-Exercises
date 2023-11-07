@@ -1,19 +1,27 @@
-import Swal from './node_modules/sweetalert2/src/sweetalert2.js';
+import Swal from 'sweetalert2';
 
-const img = document.getElementById('img');
-const heroName = document.getElementById('name');
-const button = document.getElementById('button');
-const accessTkn = '979534599887023';
-const BASE_URL = `https://superheroapi.com/api.php/${accessTkn}`;
+const imgEl = document.querySelector('#img');
+const nameEl = document.querySelector('#name');
+const btnEl = document.getElementById('btn');
 
-const maxHeroes = 1000;
+const numberOfHeroes = 1000;
 
-const randomNumber = () => Math.round(Math.random() * maxHeroes);
+const randomNumber = () => Math.round(Math.random() * numberOfHeroes);
 
-button.addEventListener('click', (event) => {
-  event.preventDefault();
+const BASE_URL = 'https://akabab.github.io/superhero-api/api';
+
+btnEl.addEventListener('click', () => {
   const id = randomNumber();
-  fetch(`${BASE_URL}/${id}`)
-  .then((result) => result.json())
-  .then((data) => console.log(data))
+
+  fetch(`${BASE_URL}/id/${id}.json`)
+    .then((response) => response.json())
+    .then((data) => {
+      imgEl.src = data.images.lg;
+      nameEl.innerHTML = data.biography.fullName;
+    }).catch((error) => Swal.fire({
+      title: 'Hero not found',
+      text: error.message,
+      icon: 'error',
+      confirmButtonText: 'Cool',
+    }));
 });
