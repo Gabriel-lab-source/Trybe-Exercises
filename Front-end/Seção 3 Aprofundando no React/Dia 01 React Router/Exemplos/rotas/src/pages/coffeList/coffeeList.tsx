@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { coffeeList } from '../data';
+import { coffeeList } from '../../data';
 
-function CoffeeList() {
+export default function CoffeeList() {
   return (
     <div>
       <h1>Nossos cafés</h1>
@@ -19,5 +19,3 @@ function CoffeeList() {
     </div>
   )
 }
-
-export default CoffeeList;

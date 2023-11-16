@@ -1,3 +1,5 @@
+// src/data.ts
+
 export const coffeeList = [
   {
     title: 'Café preto',

@@ -1,9 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
-import { coffeeList } from '../data';
+import { coffeeList } from '../../data';
 
-function Coffee() {
+export default function Coffee() {
   const params = useParams();
   const currentCoffee = coffeeList.find((coffee) => coffee.slug === params.coffee);
+
   if (!currentCoffee) {
     return (
       <div>
@@ -29,5 +30,3 @@ function Coffee() {
     </div>
   )
 }
-
-export default Coffee;
