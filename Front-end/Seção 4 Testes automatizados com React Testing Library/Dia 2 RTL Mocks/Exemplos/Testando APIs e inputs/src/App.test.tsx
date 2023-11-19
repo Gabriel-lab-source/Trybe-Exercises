@@ -37,7 +37,7 @@ describe('Testando fetch', () => {
       json: async () => MOCK_JOKE_2,
     } as Response;
 
-    const mockSecondFetch = vi.spyOn(global, 'fetch').mockRejectedValue(MOCK_RESPONSE_2);
+    const mockSecondFetch = vi.spyOn(global, 'fetch').mockResolvedValue(MOCK_RESPONSE_2);
 
     const newJokeBtn = screen.getByRole('button', { name: 'New Joke' });
     await userEvent.click(newJokeBtn);
