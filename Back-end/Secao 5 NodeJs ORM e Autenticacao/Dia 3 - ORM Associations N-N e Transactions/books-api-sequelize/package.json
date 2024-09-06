@@ -1,10 +1,10 @@
 {
-  "name": "dia-2---orm-associations-1-1-e-1-n",
+  "name": "books-api-sequelize",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha ./tests/**/*$NAME*.test.js --exit"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
