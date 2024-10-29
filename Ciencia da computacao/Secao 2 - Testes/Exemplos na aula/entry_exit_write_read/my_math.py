@@ -1,0 +1,1 @@
+input("Digite qlqr coisa:")
